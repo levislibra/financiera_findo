@@ -1,0 +1,74 @@
+<openerp>
+  <data>
+
+    <!-- Financiera ROL configuracion -->
+
+    <record model="ir.ui.view" id="financiera_findo_conf_tree">
+      <field name="name">financiera.findo.configuracion.tree</field>
+      <field name="model">financiera.findo.configuracion</field>
+      <field name="arch" type="xml">
+        <tree create="false" delete="false">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="financiera_findo_conf_form" model="ir.ui.view">
+        <field name="name">financiera.findo.configuracion.form</field>
+        <field name="model">financiera.findo.configuracion</field>
+        <field name="arch" type="xml">
+            <form string="Configuracion" create="false" delete="false">
+                <sheet>
+                  <group>
+                      <group>
+                        <field name="company_id" groups="base.group_erp_manager"/>
+                        <field name="name"/>
+                        <field name="usuario"/>
+                        <field name="password" password="True"/>
+                      </group>
+                      <group>
+                        <field name="solicitar_informe_enviar_a_revision"/>
+                        <field name="asignar_capacidad_pago_mensual"/>
+                        <field name="asignar_partner_tipo_segun_perfil"/>
+                      </group>
+                  </group>
+                  <group>
+                    <group>
+                      <notebook>
+                        <page string="Asignacion de CPM segun Perfil">
+                          <field name="perfil_to_cpm_ids">
+                            <tree editable="true">
+                              <field name="perfil" required="1"/>
+                              <field name="capacidad_pago_mensual" required="1"/>
+                              <field name="partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True, 'no_open':True}"/>
+                            </tree>
+                          </field>
+                        </page>
+                      </notebook>
+                    </group>
+                  </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="financiera_findo_action">
+      <field name="name">Configuracion Findo</field>
+      <field name="res_model">financiera.findo.configuracion</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="financiera_findo_conf_tree"/>
+    </record>
+
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Findo" id="menu_findo" web_icon="financiera_findo,static/description/icon.png" groups="financiera_findo.manager"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Configuracion" id="menu_config" sequence="20" parent="menu_findo"/>
+
+    <menuitem name="Configuracion" id="menu_config_action" sequence="1" parent="menu_config" action="financiera_findo_action"/>
+
+  </data>
+</openerp>

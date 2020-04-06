@@ -1,0 +1,28 @@
+<openerp>
+  <data>
+
+    <!-- Vista Form Partner Perfil Findo -->
+
+    <record id="partner_findo_form_inherited"  model="ir.ui.view">
+      <field name="name">Extension Partner findo form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="financiera_prestamos.partner_form_inherited"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook" position="before">
+          <group string="Perfil Findo" groups="financiera_findo.manager">
+            <group>
+              <field name="findo_name" readonly="1"/>
+              <field name="findo_mobile" readonly="1"/>
+              <field name="findo_perfil_letra" readonly="1"/>
+              <field name="findo_capacidad_pago_mensual" readonly="1"/>
+              <field name="findo_partner_tipo_id" readonly="1"/>
+            </group>
+            <group>
+            </group>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</openerp>
