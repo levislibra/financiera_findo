@@ -29,6 +29,7 @@
         'views/extends_respartner.xml',
         'views/findo_configuracion.xml',
         'views/extends_res_company.xml',
+        'wizards/financiera_perfil_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
