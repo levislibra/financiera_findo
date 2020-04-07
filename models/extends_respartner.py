@@ -28,3 +28,16 @@ class ExtendsResPartnerFindo(models.Model):
 	findo_capacidad_pago_mensual = fields.Float('Findo - CPM', digits=(16,2))
 	findo_partner_tipo_id = fields.Many2one('financiera.partner.tipo', 'Findo - Tipo de cliente')
 
+
+	# @api.one
+	# @api.onchange('findo_perfil_letra')
+	# def _onchange_findo_perfil_letra(self):
+	# 	configuracion_id = self.company_id.findo_configuracion_id
+	# 	cpm = configuracion_id.get_capacidad_pago_mensual_segun_perfil(self.findo_perfil_letra)
+	# 	self.findo_capacidad_pago_mensual = cpm
+	# 	if configuracion_id.asignar_capacidad_pago_mensual:
+	# 		self.capacidad_pago_mensual = cpm
+	# 	partner_tipo_id = configuracion_id.get_cliente_tipo_segun_perfil(self.findo_perfil_letra)
+	# 	self.findo_partner_tipo_id = partner_tipo_id.id
+	# 	if configuracion_id.asignar_partner_tipo_segun_perfil:
+	# 		self.partner_tipo_id = partner_tipo_id.id

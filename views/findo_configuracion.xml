@@ -62,7 +62,7 @@
 
     <!-- Top menu item -->
     
-    <menuitem name="Findo" id="menu_findo" web_icon="financiera_findo,static/description/icon.png" groups="financiera_findo.manager"/>
+    <menuitem name="Findo" id="menu_findo" web_icon="financiera_findo,static/description/logo2.png" groups="financiera_findo.manager"/>
     
     <!-- menu categories -->
     

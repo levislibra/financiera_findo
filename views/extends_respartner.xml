@@ -11,11 +11,11 @@
         <xpath expr="//sheet/notebook" position="before">
           <group string="Perfil Findo" groups="financiera_findo.manager">
             <group>
-              <field name="findo_name" readonly="1"/>
-              <field name="findo_mobile" readonly="1"/>
-              <field name="findo_perfil_letra" readonly="1"/>
-              <field name="findo_capacidad_pago_mensual" readonly="1"/>
-              <field name="findo_partner_tipo_id" readonly="1"/>
+              <field name="findo_name" readonly="0"/>
+              <field name="findo_mobile" readonly="0"/>
+              <field name="findo_perfil_letra" readonly="0"/>
+              <field name="findo_capacidad_pago_mensual" readonly="0"/>
+              <field name="findo_partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" readonly="0"/>
             </group>
             <group>
             </group>
