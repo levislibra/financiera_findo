@@ -26,7 +26,7 @@
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
-        'views/extends_respartner.xml',
+        'views/findo_informe.xml',
         'views/findo_configuracion.xml',
         'views/extends_res_company.xml',
         'wizards/financiera_perfil_wizard.xml',

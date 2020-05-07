@@ -29,16 +29,16 @@
                       <group>
                         <field name="solicitar_informe_enviar_a_revision"/>
                         <field name="asignar_capacidad_pago_mensual"/>
-                        <field name="asignar_partner_tipo_segun_perfil"/>
+                        <field name="asignar_partner_tipo_segun_score"/>
                       </group>
                   </group>
                   <group>
                     <group>
                       <notebook>
-                        <page string="Asignacion de CPM segun Perfil">
-                          <field name="perfil_to_cpm_ids">
+                        <page string="Asignacion de CPM segun Score">
+                          <field name="score_to_cpm_ids">
                             <tree editable="true">
-                              <field name="perfil" required="1"/>
+                              <field name="score" required="1"/>
                               <field name="capacidad_pago_mensual" required="1"/>
                               <field name="partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True, 'no_open':True}"/>
                             </tree>

@@ -1,0 +1,145 @@
+<openerp>
+  <data>
+
+    <!-- Vista Form Partner Perfil Findo -->
+
+    <record id="partner_findo_form_inherited"  model="ir.ui.view">
+      <field name="name">Extension Partner findo form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="financiera_prestamos.partner_form_inherited"/>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='risk']" position="inside">
+          <group string="VIO" col="1" style="background-color: #E6E6E6">
+            <group col="1" style="background-color: #E6E6E6">
+              <!-- attrs="{'invisible': [('findo_name', '=', False)]}" -->
+              <group col="2">
+                <field name="findo_date_inform" readonly="1"/>
+                <field name="findo_score" readonly="1"/>
+              </group>
+              <group col="1">
+                <group col="2">
+                  <field name="findo_name" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_dni" readonly="1"/>
+                </group>
+              </group>
+              <button name="button_asignar_identidad_findo" string="Asignar identidad Findo al Cliente" attrs="{'invisible': ['|', ('findo_dni', '=', False), ('findo_name', '=', False)]}" type="object" confirm="Desea confirmar?"/>
+              <field name="findo_direccion" readonly="1"/>
+              <button name="button_asignar_direccion_findo" string="Asignar domicilio Findo al Cliente" attrs="{'invisible': [('findo_direccion', '=', False)]}" type="object" confirm="Desea confirmar?"/>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_capacidad_pago_mensual" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" readonly="1"/>
+                </group>
+              </group>
+              <button name="button_asignar_cpm_y_tipo_findo" string="Asignar tipo y CPM Findo al Cliente" type="object" confirm="Desea confirmar?"/>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_declaredPersonalIncome" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_totalIncome" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_housingProperty" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_mobility" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_studiesLevel" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_predictedNSE" readonly="1"/>
+                </group>
+              </group>
+            </group>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Vista Form Riesgo Crediticio -->
+
+    <record id="financiera_res_partner_scoring_form_inherit"  model="ir.ui.view">
+      <field name="name">Extension Partner rol form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="financiera_prestamos.financiera_res_partner_scoring_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//group[@name='risk']" position="after">
+          <group string="VIO" col="1" style="background-color: #E6E6E6">
+            <group col="1" style="background-color: #E6E6E6">
+              <!-- attrs="{'invisible': [('findo_name', '=', False)]}" -->
+              <group col="2">
+                <field name="findo_date_inform" readonly="1"/>
+                <field name="findo_score" readonly="1"/>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_name" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_dni" readonly="1"/>
+                </group>
+              </group>
+              <button name="button_asignar_identidad_findo" string="Asignar identidad Findo al Cliente" attrs="{'invisible': ['|', ('findo_dni', '=', False), ('findo_name', '=', False)]}" type="object" confirm="Desea confirmar?"/>
+              <field name="findo_direccion" readonly="1"/>
+              <button name="button_asignar_direccion_findo" string="Asignar domicilio Findo al Cliente" attrs="{'invisible': [('findo_direccion', '=', False)]}" type="object" confirm="Desea confirmar?"/>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_capacidad_pago_mensual" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" readonly="1"/>
+                </group>
+              </group>
+              <button name="button_asignar_cpm_y_tipo_findo" string="Asignar tipo y CPM Findo al Cliente" type="object" confirm="Desea confirmar?"/>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_declaredPersonalIncome" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_coupleIncome" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_otherIncome" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_totalIncome" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_housingProperty" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_mobility" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_studiesLevel" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_predictedNSE" readonly="1"/>
+                </group>
+              </group>
+            </group>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+
+
+  </data>
+</openerp>
