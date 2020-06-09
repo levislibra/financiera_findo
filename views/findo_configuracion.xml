@@ -25,6 +25,7 @@
                         <field name="name"/>
                         <field name="usuario"/>
                         <field name="password" password="True"/>
+                        <field name="token"/>
                       </group>
                       <group>
                         <field name="solicitar_informe_enviar_a_revision"/>
