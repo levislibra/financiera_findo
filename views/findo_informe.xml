@@ -1,7 +1,7 @@
 <openerp>
   <data>
 
-    <!-- Vista Form Partner Perfil Findo -->
+    <!-- Columna del riesgo crediticio en perfil del cliente -->
 
     <record id="partner_findo_form_inherited"  model="ir.ui.view">
       <field name="name">Extension Partner findo form</field>
@@ -10,43 +10,42 @@
       <field name="arch" type="xml">
         <xpath expr="//group[@name='risk']" position="inside">
           <group string="VIO" col="1" style="background-color: #E6E6E6">
-            <group col="1" style="background-color: #E6E6E6">
-              <!-- attrs="{'invisible': [('findo_name', '=', False)]}" -->
+            <group col="1" style="background-color: #E6E6E6" attrs="{'invisible': [('findo_name_risk', '=', False)]}">
               <group col="2">
-                <field name="findo_date_inform" readonly="1"/>
-                <field name="findo_score" readonly="1"/>
+                <field name="findo_date_inform_risk" readonly="1"/>
+                <field name="findo_score_risk" readonly="1"/>
               </group>
               <group col="1">
                 <group col="2">
-                  <field name="findo_name" readonly="1"/>
+                  <field name="findo_name_risk" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_dni" readonly="1"/>
+                  <field name="findo_dni_risk" readonly="1"/>
                 </group>
               </group>
               <button name="button_asignar_identidad_findo" string="Asignar identidad Findo al Cliente" attrs="{'invisible': ['|', ('findo_dni', '=', False), ('findo_name', '=', False)]}" type="object" confirm="Desea confirmar?"/>
-              <field name="findo_direccion" readonly="1"/>
+              <field name="findo_direccion_risk" readonly="1"/>
               <button name="button_asignar_direccion_findo" string="Asignar domicilio Findo al Cliente" attrs="{'invisible': [('findo_direccion', '=', False)]}" type="object" confirm="Desea confirmar?"/>
               <group col="2">
                 <group col="1">
-                  <field name="findo_capacidad_pago_mensual" readonly="1"/>
+                  <field name="findo_capacidad_pago_mensual_risk" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" readonly="1"/>
+                  <field name="findo_partner_tipo_id_risk" options="{'no_quick_create':True,'no_create_edit':True,'no_open':True}" readonly="1"/>
                 </group>
               </group>
               <button name="button_asignar_cpm_y_tipo_findo" string="Asignar tipo y CPM Findo al Cliente" type="object" confirm="Desea confirmar?"/>
               <group col="2">
                 <group col="1">
-                  <field name="findo_declaredPersonalIncome" readonly="1"/>
+                  <field name="findo_declared_personal_income_risk" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_totalIncome" readonly="1"/>
+                  <field name="findo_total_income_risk" readonly="1"/>
                 </group>
               </group>
               <group col="2">
                 <group col="1">
-                  <field name="findo_housingProperty" readonly="1"/>
+                  <field name="findo_housing_property" readonly="1"/>
                 </group>
                 <group col="1">
                   <field name="findo_mobility" readonly="1"/>
@@ -54,19 +53,86 @@
               </group>
               <group col="2">
                 <group col="1">
-                  <field name="findo_studiesLevel" readonly="1"/>
+                  <field name="findo_studies_level_risk" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_predictedNSE" readonly="1"/>
+                  <field name="findo_predicted_nse_risk" readonly="1"/>
                 </group>
               </group>
             </group>
           </group>
         </xpath>
+        <xpath expr="//page[2]" position='after'>
+          <page string='Vio App' groups="financiera_findo.manager">
+            <group col="4">
+              <group>
+                <separator string="Vio personal" colspan="2"/>
+                <field name="findo_date_inform" readonly="1"/>
+                <field name="findo_name" readonly="1"/>
+                <field name="findo_dni" readonly="1"/>
+                <field name="findo_nacimiento" readonly="1"/>
+                <field name="findo_mobile" readonly="1"/>
+                <separator string="Vio informacion de trabajo" colspan="2"/>
+                <field name="findo_workRelationship" readonly="1"/>
+                <field name="findo_job" readonly="1"/>
+                <field name="findo_employeer" readonly="1"/>
+                <field name="findo_position" readonly="1"/>
+                <field name="findo_work_address" readonly="1"/>
+                <field name="findo_work_phone" readonly="1"/>
+              </group>
+              <group>
+                <separator string="Vio riesgo" colspan="2"/>
+                <field name="findo_score" readonly="1"/>
+                <field name="findo_capacidad_pago_mensual" readonly="1"/>
+                <field name="findo_partner_tipo_id" readonly="1"/>
+                <separator string="Vio direccion" colspan="2"/>
+                <field name="findo_declared_personal_income" readonly="1"/>
+                <field name="findo_street" readonly="1"/>
+                <field name="findo_number" readonly="1"/>
+                <field name="findo_city" readonly="1"/>
+                <field name="findo_province" readonly="1"/>
+                <field name="findo_zipCode" readonly="1"/>
+                <field name="findo_direccion" readonly="1"/>
+                <field name="findo_phoneNumber" readonly="1"/>
+              </group>
+              <group>
+                <separator string="Vio ingresos" colspan="2"/>
+                <field name="findo_declared_personal_income" readonly="1"/>
+                <field name="findo_couple_income" readonly="1"/>
+                <field name="findo_other_income" readonly="1"/>
+                <field name="findo_total_income" readonly="1"/>
+                <field name="findo_housing_property" readonly="1"/>
+                <field name="findo_housing_age" readonly="1"/>
+                <field name="findo_mobility" readonly="1"/>
+                <field name="findo_studies_level" readonly="1"/>
+                <field name="findo_predicted_nse" readonly="1"/>
+              </group>
+              <group>
+                <separator string="Vio ID" colspan="2"/>
+                <field name="findo_documento_name" readonly="1"/>
+                <field name="findo_documento_dni" readonly="1"/>
+                <field name="findo_documento_validId" readonly="1"/>
+                <field name="findo_documento_validRenaper" readonly="1"/>
+                <field name="findo_documento_deathRenaper" readonly="1"/>
+                <separator string="Vio direccion Renaper" colspan="2"/>
+                <field name="findo_renaper_street" readonly="1"/>
+                <field name="findo_renaper_number" readonly="1"/>
+                <field name="findo_renaper_city" readonly="1"/>
+                <field name="findo_renaper_province" readonly="1"/>
+                <field name="findo_renaper_zipCode" readonly="1"/>
+                <field name="findo_renaper_floor" readonly="1"/>
+                <field name="findo_renaper_department" readonly="1"/>
+                <field name="findo_renaper_direccion" readonly="1"/>
+                <field name="findo_renaper_municipality" readonly="1"/>
+                <field name="findo_renaper_country" readonly="1"/>
+              </group>
+            </group>
+          </page>
+        </xpath>
       </field>
     </record>
 
-    <!-- Vista Form Riesgo Crediticio -->
+    <!-- Vista Form Riesgo Crediticio en Prestamo -->
 
     <record id="financiera_res_partner_scoring_form_inherit"  model="ir.ui.view">
       <field name="name">Extension Partner rol form</field>
@@ -75,8 +141,7 @@
       <field name="arch" type="xml">
         <xpath expr="//group[@name='risk']" position="after">
           <group string="VIO" col="1" style="background-color: #E6E6E6">
-            <group col="1" style="background-color: #E6E6E6">
-              <!-- attrs="{'invisible': [('findo_name', '=', False)]}" -->
+            <group col="1" style="background-color: #E6E6E6"  attrs="{'invisible': [('findo_name', '=', False)]}">
               <group col="2">
                 <field name="findo_date_inform" readonly="1"/>
                 <field name="findo_score" readonly="1"/>
@@ -103,23 +168,23 @@
               <button name="button_asignar_cpm_y_tipo_findo" string="Asignar tipo y CPM Findo al Cliente" type="object" confirm="Desea confirmar?"/>
               <group col="2">
                 <group col="1">
-                  <field name="findo_declaredPersonalIncome" readonly="1"/>
+                  <field name="findo_declared_personal_income" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_coupleIncome" readonly="1"/>
-                </group>
-              </group>
-              <group col="2">
-                <group col="1">
-                  <field name="findo_otherIncome" readonly="1"/>
-                </group>
-                <group col="1">
-                  <field name="findo_totalIncome" readonly="1"/>
+                  <field name="findo_couple_income" readonly="1"/>
                 </group>
               </group>
               <group col="2">
                 <group col="1">
-                  <field name="findo_housingProperty" readonly="1"/>
+                  <field name="findo_other_income" readonly="1"/>
+                </group>
+                <group col="1">
+                  <field name="findo_total_income" readonly="1"/>
+                </group>
+              </group>
+              <group col="2">
+                <group col="1">
+                  <field name="findo_housing_property" readonly="1"/>
                 </group>
                 <group col="1">
                   <field name="findo_mobility" readonly="1"/>
@@ -127,10 +192,10 @@
               </group>
               <group col="2">
                 <group col="1">
-                  <field name="findo_studiesLevel" readonly="1"/>
+                  <field name="findo_studies_level" readonly="1"/>
                 </group>
                 <group col="1">
-                  <field name="findo_predictedNSE" readonly="1"/>
+                  <field name="findo_predicted_nse" readonly="1"/>
                 </group>
               </group>
             </group>

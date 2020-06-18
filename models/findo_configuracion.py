@@ -5,8 +5,6 @@ from datetime import datetime, timedelta
 from dateutil import relativedelta
 from openerp.exceptions import UserError, ValidationError
 import time
-import requests
-
 class FinancieraFindoConfiguracion(models.Model):
 	_name = 'financiera.findo.configuracion'
 
@@ -20,6 +18,7 @@ class FinancieraFindoConfiguracion(models.Model):
 	asignar_capacidad_pago_mensual = fields.Boolean('Asignar capacidad de pago mensual automaticamente')
 	asignar_partner_tipo_segun_score = fields.Boolean('Asignar tipo de cliente segun score automaticamente')
 	score_to_cpm_ids = fields.One2many('financiera.findo.score.cpm', 'configuracion_id', 'Asignacion de CPM segun Perfil')
+	financiera_category_id = fields.Many2one('res.partner.category', 'Etiqueta del Cliente')
 	company_id = fields.Many2one('res.company', 'Empresa', required=False, default=lambda self: self.env['res.company']._company_default_get('financiera.findo.configuracion'))
 	
 	def get_capacidad_pago_mensual_segun_score(self, score):

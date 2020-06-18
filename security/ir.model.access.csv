@@ -2,5 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 manager_financiera_findo_configuracion,financiera.findo.configuracion,model_financiera_findo_configuracion,financiera_findo.manager,1,1,1,1
 user_financiera_findo_configuracion,financiera.findo.configuracion,model_financiera_findo_configuracion,financiera_findo.user,1,0,0,0
 
-manager_financiera_findo_perfil_cpm,financiera.findo.perfil.cpm,model_financiera_findo_perfil_cpm,financiera_findo.manager,1,1,1,1
-user_financiera_findo_perfil_cpm,financiera.findo.perfil.cpm,model_financiera_findo_perfil_cpm,financiera_findo.user,1,0,0,0
+manager_financiera_findo_score_cpm,financiera.findo.score.cpm,model_financiera_findo_score_cpm,financiera_findo.manager,1,1,1,1
+user_financiera_findo_score_cpm,financiera.findo.score.cpm,model_financiera_findo_score_cpm,financiera_findo.user,1,0,0,0

@@ -29,6 +29,8 @@
         'views/findo_informe.xml',
         'views/findo_configuracion.xml',
         'views/extends_res_company.xml',
+        'data/ir_cron.xml',
+        'data/defaultdata.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

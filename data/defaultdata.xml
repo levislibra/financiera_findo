@@ -1,0 +1,8 @@
+<openerp>
+	<data>
+		<record id="item_partner_tag" model="res.partner.category">
+		    <field name="name">VIO</field>
+		    <field name="color">25</field>
+        </record>
+	</data>
+</openerp>

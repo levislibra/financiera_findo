@@ -13,45 +13,49 @@
       </field>
     </record>
 
-    <record id="financiera_findo_conf_form" model="ir.ui.view">
-        <field name="name">financiera.findo.configuracion.form</field>
-        <field name="model">financiera.findo.configuracion</field>
-        <field name="arch" type="xml">
-            <form string="Configuracion" create="false" delete="false">
-                <sheet>
-                  <group>
-                      <group>
-                        <field name="company_id" groups="base.group_erp_manager"/>
-                        <field name="name"/>
-                        <field name="usuario"/>
-                        <field name="password" password="True"/>
-                        <field name="token"/>
-                      </group>
-                      <group>
-                        <field name="solicitar_informe_enviar_a_revision"/>
-                        <field name="asignar_capacidad_pago_mensual"/>
-                        <field name="asignar_partner_tipo_segun_score"/>
-                      </group>
-                  </group>
-                  <group>
-                    <group>
-                      <notebook>
-                        <page string="Asignacion de CPM segun Score">
-                          <field name="score_to_cpm_ids">
-                            <tree editable="true">
-                              <field name="score" required="1"/>
-                              <field name="capacidad_pago_mensual" required="1"/>
-                              <field name="partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True, 'no_open':True}"/>
-                            </tree>
-                          </field>
-                        </page>
-                      </notebook>
-                    </group>
-                  </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+  <record id="financiera_findo_conf_form" model="ir.ui.view">
+    <field name="name">financiera.findo.configuracion.form</field>
+    <field name="model">financiera.findo.configuracion</field>
+    <field name="arch" type="xml">
+      <form string="Configuracion" create="false" delete="false">
+        <header>
+          <!-- <button string="pendingRequests" name="pendingRequests" type="object" class="oe_highlight"/> -->
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="company_id" groups="base.group_erp_manager"/>
+              <field name="name"/>
+              <field name="usuario"/>
+              <field name="password" password="True"/>
+              <field name="token"/>
+            </group>
+            <group>
+              <field name="solicitar_informe_enviar_a_revision"/>
+              <field name="asignar_capacidad_pago_mensual"/>
+              <field name="asignar_partner_tipo_segun_score"/>
+              <field name="financiera_category_id" required="1"/>
+            </group>
+          </group>
+          <group>
+            <group>
+              <notebook>
+                <page string="Asignacion de CPM segun Score">
+                  <field name="score_to_cpm_ids">
+                    <tree editable="true">
+                      <field name="score" required="1"/>
+                      <field name="capacidad_pago_mensual" required="1"/>
+                      <field name="partner_tipo_id" options="{'no_quick_create':True,'no_create_edit':True, 'no_open':True}"/>
+                    </tree>
+                  </field>
+                </page>
+              </notebook>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
 
     <record model="ir.actions.act_window" id="financiera_findo_action">
       <field name="name">Configuracion Findo</field>
