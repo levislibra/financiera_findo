@@ -20,7 +20,12 @@ class FinancieraFindoConfiguracion(models.Model):
 	score_to_cpm_ids = fields.One2many('financiera.findo.score.cpm', 'configuracion_id', 'Asignacion de CPM segun Perfil')
 	financiera_category_id = fields.Many2one('res.partner.category', 'Etiqueta del Cliente')
 	company_id = fields.Many2one('res.company', 'Empresa', required=False, default=lambda self: self.env['res.company']._company_default_get('financiera.findo.configuracion'))
-	
+	vio_url_install_app = fields.Char('Url de instalacion VIO')
+	vio_qr_install_app = fields.Binary("QR de instalacion VIO")
+	# Requerimientos para solicitud de prestamo
+	requiere_perfil_vio_para_solicitud = fields.Boolean('Requiere perfil VIO para solicitar prestamo')
+	requiere_dias_nuevo_informe = fields.Integer('Dias para requerir nuevo informe', default=365)
+
 	def get_capacidad_pago_mensual_segun_score(self, score):
 		result = 0
 		for line in self.score_to_cpm_ids:
@@ -51,4 +56,3 @@ class ExtendsResCompany(models.Model):
 	_inherit = 'res.company'
 
 	findo_configuracion_id = fields.Many2one('financiera.findo.configuracion', 'Configuracion Findo')
-

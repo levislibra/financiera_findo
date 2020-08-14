@@ -67,7 +67,7 @@
             <group col="4">
               <group>
                 <separator string="Vio personal" colspan="2"/>
-                <field name="findo_date_inform" readonly="1"/>
+                <field name="findo_date_inform" readonly="0"/>
                 <field name="findo_name" readonly="1"/>
                 <field name="findo_dni" readonly="1"/>
                 <field name="findo_nacimiento" readonly="1"/>
@@ -86,7 +86,6 @@
                 <field name="findo_capacidad_pago_mensual" readonly="1"/>
                 <field name="findo_partner_tipo_id" readonly="1"/>
                 <separator string="Vio direccion" colspan="2"/>
-                <field name="findo_declared_personal_income" readonly="1"/>
                 <field name="findo_street" readonly="1"/>
                 <field name="findo_number" readonly="1"/>
                 <field name="findo_city" readonly="1"/>

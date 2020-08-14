@@ -1,0 +1,37 @@
+<openerp>
+  <data>
+
+    <!-- Vista Form Entidad -->
+
+    <record id="extends_prestamo_portal_form_inherited"  model="ir.ui.view">
+      <field name="name">Extension Financiera Prestamo Portal form</field>
+      <field name="model">financiera.prestamo</field>
+      <field name="inherit_id" ref="financiera_app.financiera_prestamo_portal_form"/>
+      <field name="arch" type="xml">
+				<xpath expr="//group[@name='requisitos']" position='inside'>
+					<group name="requiere_vio" string="Requiere perfil VIO" col="1" 
+						attrs="{'invisible': [('perfil_vio_pass', '=', True)]}">
+						<div style="background-color:#c8c8c8;border-radius:20px;padding:20px;">
+							<field name="company_id" invisible="1"/>
+							<field name="perfil_vio_pass" invisible="1"/>
+							<table>
+								<tr>
+									<td style="width:20%;">
+										<field name="vio_qr_install_app" widget="image" class="oe_avatar" readonly="1"/>
+									</td>
+									<td style="width:40%;">
+										<label string="Necesitamos que descargues la siguiente aplicacion, no te llevara mas de 10 minutos. Luego actualiza esta pagina!" style="font-weight:bold;"/>
+										<field name="vio_url_install_app" readonly="1" widget="url"/>
+									</td>
+								</tr>
+							</table>
+							<!-- <button name="button_supera_perfil_vio" class="oe_highlight" string="Actualizar" type="object"/> -->
+						</div>
+					</group>
+					<group></group>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</openerp>

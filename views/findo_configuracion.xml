@@ -33,7 +33,11 @@
             <group>
               <field name="solicitar_informe_enviar_a_revision"/>
               <field name="asignar_capacidad_pago_mensual"/>
-              <field name="asignar_partner_tipo_segun_score"/>
+							<field name="asignar_partner_tipo_segun_score"/>
+							<field name="requiere_perfil_vio_para_solicitud"/>
+							<field name="requiere_dias_nuevo_informe"/>
+							<field name="vio_url_install_app"/>
+							<field name="vio_qr_install_app"/>
               <field name="financiera_category_id" required="1"/>
             </group>
           </group>

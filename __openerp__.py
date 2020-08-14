@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['financiera_prestamos'],
+    'depends': ['financiera_prestamos', 'financiera_app'],
 
     # always loaded
     'data': [
@@ -29,6 +29,7 @@
         'views/findo_informe.xml',
         'views/findo_configuracion.xml',
         'views/extends_res_company.xml',
+				'views/extends_prestamo_portal.xml',
         'data/ir_cron.xml',
         'data/defaultdata.xml',
     ],

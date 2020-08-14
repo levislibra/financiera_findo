@@ -7,8 +7,8 @@
             <field name="name">Findo Vio - chequear nuevas solicitudes</field>
             <field name="user_id" ref="base.user_root" />
             <field name="priority">1</field>
-            <field name="interval_number">1</field>
-            <field name="interval_type">days</field>
+            <field name="interval_number">10</field>
+            <field name="interval_type">minutes</field>
             <field name="numbercall">-1</field>
             <field name="doall" eval="False"/>
             <field name="nextcall" >2019-01-01 12:00:00</field>
