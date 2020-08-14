@@ -29,7 +29,7 @@
         'views/findo_informe.xml',
         'views/findo_configuracion.xml',
         'views/extends_res_company.xml',
-				'views/extends_prestamo_portal.xml',
+				'views/extends_perfil_portal.xml',
         'data/ir_cron.xml',
         'data/defaultdata.xml',
     ],

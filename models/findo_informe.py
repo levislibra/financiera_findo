@@ -90,6 +90,10 @@ class ExtendsResPartnerFindo(models.Model):
 	findo_capacidad_pago_mensual_risk = fields.Float(related='findo_capacidad_pago_mensual')
 	findo_partner_tipo_id = fields.Many2one('financiera.partner.tipo', 'Findo - Tipo de cliente')
 	findo_partner_tipo_id_risk = fields.Many2one(related='findo_partner_tipo_id')
+	# Requerimientos de perfil vio
+	perfil_vio_pass = fields.Boolean('Supera requerimiento de perfil VIO', compute='_compute_perfil_vio_pass')
+	vio_url_install_app = fields.Char('Url de instalacion VIO', readonly=True, related='company_id.findo_configuracion_id.vio_url_install_app')
+	vio_qr_install_app = fields.Binary("QR de instalacion VIO", readonly=True, related='company_id.findo_configuracion_id.vio_qr_install_app')
 
 	@api.model
 	def _pendingRequests(self):
@@ -311,3 +315,24 @@ class ExtendsResPartnerFindo(models.Model):
 		self.partner_tipo_id = self.findo_partner_tipo_id.id
 		self.capacidad_pago_mensual = self.findo_capacidad_pago_mensual
 		return {'type': 'ir.actions.do_nothing'}
+
+	@api.one
+	def _compute_perfil_vio_pass(self):
+		self.perfil_vio_pass = True
+		findo_configuracion_id = self.company_id.findo_configuracion_id
+		if len(findo_configuracion_id) > 0:
+			if findo_configuracion_id.requiere_perfil_vio_para_solicitud:
+				# Requiere perfil VIO
+				if not self.findo_date_inform:
+					self.perfil_vio_pass = False
+				elif findo_configuracion_id.requiere_dias_nuevo_informe > 0:
+					fecha_informe = datetime.strptime(self.findo_date_inform, "%Y-%m-%d")
+					fecha_actual = datetime.now() #datetime.strptime(self.prestamo_id.precancelar_fecha, "%Y-%m-%d")
+					diferencia = fecha_actual - fecha_informe
+					dias = diferencia.days
+					if dias > 0 and dias > findo_configuracion_id.requiere_dias_nuevo_informe:
+						self.perfil_vio_pass = False
+
+	@api.one
+	def actualizar_vio_perfil(self):
+		return True
